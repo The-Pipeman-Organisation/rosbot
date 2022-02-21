@@ -1,4 +1,5 @@
 # rosbot
 Rosbot 2.0!
 
-> upload one we fix the code!
+> MUCH better than the old scripts!  
+> Now with semi-automatic install script!
