@@ -56,9 +56,9 @@ Installieren vom YDLidar-SDK
     cd ydlidar_ws/
     catkin_make
 
->Einen neuen Workspace anlegen, sodass es einfacher ist zu wissen, wo welche Pakete installiert sind.
+>Einen neuen Workspace anlegen, sodass es einfacher ist zu wissen wo welche Pakete installiert sind.
 > 
->catkin_make macht aus dem ordner ein workspace.  
+>catkin_make macht aus dem ordner ein workspace ; oder lädt pakete neu falls es schon ein workspace ist.  
 
 >**mehr infos unter: `http://wiki.ros.org/catkin/workspaces`**
 
@@ -92,6 +92,13 @@ YDLidar-SDK herunterladen und installieren:
 
 <br>
 
+Am schluss die Pakete im workspace neu laden
+
+    cd ~/ydlidar_ws/  
+    catkin_make
+
+<br>
+
 **FERTIG!**
 
 ---
@@ -122,17 +129,30 @@ Den Lidar starten!
 Herunterladen von meinen Skripten:
 
     cd
-    git clone https://github.com/MrGreenLlama/rosbot.git
+    git clone https://github.com/The-Pipeman-Organization/rosbot.git
 <br>
 das Betriebssystem muss dem nutzer erlaubnis geben, die Skripte auszuführen:
     
     sudo chmod +x rosbot/*
 
->mit `./` kann man jetzt die Skripte ausführen! z.B.:`./rosbot/roscore-start.sh`  
+>mit `./` kann man jetzt die Skripte ausführen! z.B.:`./rosbot/startScripts/lidarStart.sh`  
 >
-> falls es nicht geht, müsst ihr wahrscheinlich die erste variable `LAUNCH` auf den richtigen Dateipfad weisen
+> falls es nicht geht, müsst ihr wahrscheinlich die erste variable `LAUNCH` auf den richtigen Dateipfad weisen  
 
-ist das nicht pog?! ![POG! {hier sollte ein bild sein lol}](http://pipeman.org/poggers.png) 
+> Ich empfehle es mit Screens zu arbeiten.  
+> Screen kann man mit `sudo apt install screen` installieren  
+> Um sachen in einen Screen zu starten: `screen -S <irgendein name> <Kommando>` (Kommando wird in dem neuen screen ausgeführt)
+> z.B.: `screen -S lidar ./rosbot/startScripts/lidarStart.sh`
+> 
+> um aus dem Screen herauszukommen `strg` + `a` + `d` drücken
+> 
+> um wieder hereinzukommen `screen -r <name>` z.B.: `screen -r lidar`
+> 
+> oder um alle anzuzeigen, nur `screen -ls` eingeben
+> 
+> der screen lässt sich wie ein normaler prozess mit `strg + c` schließen
+> 
+> für mehr infos: `man screen` nutzten (man gibts in apt, wenn nicht vorinstalliert)
 
 <br>
 <br>
@@ -180,10 +200,10 @@ Dann kann man den Lidar endlich starten
 
 > Zuerst roscore mit dem kommando `roscore` starten, sonst gibts errors!
 
-> Ich empfehle mit Screens zu arbeiten.  
+> Ich empfehle es mit Screens zu arbeiten.  
 > Screen kann man mit `sudo apt install screen` installieren  
 > Um sachen in einen Screen zu starten: `screen -S <irgendein name> <Kommando>` (Kommando wird in dem neuen screen ausgeführt)
-> z.B.: `screen -S lidar roslaunch ydlidar_ros_driver X4.launch`
+> z.B.: `screen -S lidar ./rosbot/startScripts/lidarStart.sh`
 > 
 > um aus dem Screen herauszukommen `strg` + `a` + `d` drücken
 > 
